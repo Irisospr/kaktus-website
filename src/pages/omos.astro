@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro"
+import Staffcards from "../components/staffcards.astro";
+---
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaktus</title>
+  </head>
+  <body>
+    <header> 
+     <Header></Header>
+    </header>
+    <section class="imgtekst2">
+        <div class="img1">
+          <img src="/photos/behandlinger.webp" alt="behandlinger">
+        </div>
+      <div class="tekst1">
+        <h2>OM SALONEN</h2>
+        Kaktus er en grøn frisørsalon i hjertet af København, hvor islandsk håndværk møder bæredygtige værdier. Salonen ligger på hyggelige Fiolstræde, omgivet af byliv og kreativ atmosfære. Her prioriterer vi nærvær, kvalitet og et trygt rum, hvor du kan læne dig tilbage og nyde en behandling, der er skabt med omtanke.
+
+        Vi er et lille islandsk team med mange års erfaring inden for hår, makeup og styling – både fra saloner, teater og modeshows. Hos os får du effektiv, professionel service uden at gå på kompromis med hverken miljøet eller din sundhed. Vi vælger alle produkter med stor omhu og arbejder kun med skånsomme farver og miljøvenlige alternativer.
+        </div>
+      </section>
+    </header>
+    <section class="imgtekst1">
+        <div class="tekst1">
+            <h2>VORES MISSION</h2>
+            Vores mission er at skabe en frisøroplevelse, hvor skønhed, velvære og bæredygtighed går hånd i hånd. Vi tror på, at selv små valg gør en forskel – både for dig, for os som frisører og for naturen omkring os.
+
+            Som islandsk team er vi stærkt formet af naturen og dens rå skønhed. Den inspirerer os hver dag til at arbejde grønnere, vælge rene produkter og skabe et miljø, hvor både mennesker og planeten bliver behandlet med respekt.
+            Vi ønsker at give dig en behandling, der føles god – ikke kun når du forlader stolen, men også i hjertet.
+        </div>
+        <div class="img1">
+          <img src="/photos/behandlinger.webp" alt="behandlinger">
+        </div>
+      
+      </section>
+      <h2>MEDARBEJDER</h2>
+    
+      <Staffcards/>
+      
+
+
+
+
+<Footer />
+  </body>
+</html>
