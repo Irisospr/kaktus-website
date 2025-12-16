@@ -1,0 +1,78 @@
+<div class="parallax-container">
+    <link
+      rel="preload"
+      href="/photos/bcover.webp"
+      as="image"
+      type="image/webp"
+    />
+    <div class="hero-section">
+      <div class="hero-content">
+       
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <style>
+    body {
+      margin: 0;
+    }
+  
+    /* Container for the parallax effect */
+    .parallax-container {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+  
+    /* Hero section with the background image */
+    .hero-section {
+      background-image: url("/photos/bcover.webp"); /* Replace with your image URL */
+      background-attachment: fixed; /* This is the key to parallax effect */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 70%; /* Ensure it takes full height of the viewport */
+      position: relative;
+      display: flex;
+     
+    }
+  
+    /* Content inside the hero section */
+    .hero-content {
+      margin: 0;
+      padding: 0;
+    }
+  
+    /* Add some regular content below */
+   
+    <style>
+  /* General styles remain as defined */
+  
+  /* Adjust styles for devices with a max width of 768px (tablets and phones) */
+  @media (max-width: 768px) {
+      .hero-section {
+        background-attachment: scroll; /* Disable parallax on mobile for better performance */
+        height: 50vh; /* Adjust height for smaller screens */
+      }
+  
+      
+  
+      
+    }
+  
+    /* Adjust styles for very small devices with a max width of 480px (phones) */
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 32px; /* Further reduce font size for very small screens */
+      }
+  
+     
+    }
+  </style>
+  
+  
+      
+
+  
