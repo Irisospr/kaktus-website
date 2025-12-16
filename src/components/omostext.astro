@@ -1,0 +1,102 @@
+</body>
+
+<section class="omos1">
+<div class="omosphoto hidden">
+        <img src="/photos/behandlinger.webp" alt="vores historie"  loading="lazy">
+    </div>
+    <div class="omostext hidden">
+       <h2>OM SALONEN</h2>
+       <p>Kaktus er en grøn frisørsalon i hjertet af København, hvor islandsk håndværk møder bæredygtige værdier. Salonen ligger på hyggelige Fiolstræde, omgivet af byliv og kreativ atmosfære. Her prioriterer vi nærvær, kvalitet og et trygt rum, hvor du kan læne dig tilbage og nyde en behandling, der er skabt med omtanke.
+
+        Vi er et lille islandsk team med mange års erfaring inden for hår, makeup og styling – både fra saloner, teater og modeshows. Hos os får du effektiv, professionel service uden at gå på kompromis med hverken miljøet eller din sundhed. Vi vælger alle produkter med stor omhu og arbejder kun med skånsomme farver og miljøvenlige alternativer.</p>
+</div>
+</section>
+
+<section class="omos2">
+    <div class="omostext hidden">
+     
+      <h2>VORES MISSION <h2> 
+        <p>Vores mission er at skabe en frisøroplevelse, hvor skønhed, velvære og bæredygtighed går hånd i hånd. Vi tror på, at selv små valg gør en forskel – både for dig, for os som frisører og for naturen omkring os.
+
+            Som islandsk team er vi stærkt formet af naturen og dens rå skønhed. Den inspirerer os hver dag til at arbejde grønnere, vælge rene produkter og skabe et miljø, hvor både mennesker og planeten bliver behandlet med respekt.
+            Vi ønsker at give dig en behandling, der føles god – ikke kun når du forlader stolen, men også i hjertet.</p>
+         </div>
+    <div class="omosphoto hidden">
+        <img src="/photos/behandlinger.webp" alt="vores mission"  loading="lazy">
+    </div>
+    
+</section>
+
+
+<script type="module" src="/scripts/parallax.js" defer></script>
+</body>
+<style>
+
+.hidden {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+
+
+/* Visible state */
+.visible {
+  opacity: 1;
+  transform: translateY(0); /* Slide the element up to its original position */
+}
+.omos1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ background-color: #A7B8A1;
+    } 
+   
+.omos2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #FBF4EC;
+ 
+    } 
+
+    .omostext h2{
+    text-align: center;
+  
+    }
+ 
+
+    .omostext p{
+    text-align: center;
+    color: black;
+    text-align: justify;
+    }
+
+    .omostext{
+        margin: 50px;
+        padding: 30px;
+    }
+
+    .omosphoto
+    img
+    {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+    
+     }
+     @media (max-width: 768px) {
+    .omos1
+    .omos2 {
+        grid-template-columns: 1fr; /* Switch to single-column layout */
+        text-align: center; /* Center text and images */
+    }
+
+    .omosphoto, .omostext {
+        margin: 20px; /* Adjust margins for smaller screens */
+    }
+
+ 
+    .omosphoto {
+    order: -1;
+  }
+}
+</style>
