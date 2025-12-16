@@ -40,3 +40,65 @@
   font-size: 14px;
   letter-spacing: 0.06em;
 }
+
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  background-image: url("/path/to/your/image.jpg"); /* Add your image URL here */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #a7b8a1;
+  padding: 0 20px; /* Padding for responsiveness */
+}
+
+.hero-content {
+  max-width: 800px; /* Limit content width for readability */
+}
+
+.hero-title {
+  font-size: 3.5rem; /* Big and bold for hero title */
+  font-family: "YourHeaderFont", sans-serif; /* Use your header font */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-family: "YourSubtitleFont", sans-serif; /* You can choose a secondary font here */
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  background-color: #8fd2c9; /* Your signature green color */
+  color: #ffffff;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.imgtekst1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: #f7f7f7;
+}
+
+.imgtekst2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: #a7b8a1;
+}
