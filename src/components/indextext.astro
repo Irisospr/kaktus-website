@@ -1,0 +1,130 @@
+</body>
+
+<section class="omos1">
+<div class="omosphoto hidden">
+        <img src="/photos/behandlinger.webp" alt="vores historie"  loading="lazy">
+    </div>
+    <div class="omostext hidden">
+       <h2>BEHANDLINGER</h2>
+       <p>Hos os får du kvalitetsbehandlinger i rolige, hyggelige omgivelser. Vi bruger skånsomme, miljøvenlige produkter og arbejder med omtanke og nærvær, så du kan læne dig tilbage og nyde en grøn og skånsom hårplejeoplevelse.</p>
+<a class="btn-book" href="https://kaktus.planway.com/" target="_blank" rel="noopener">
+    LÆS MERE
+  </a>
+</div>
+</section>
+
+<section class="omos2">
+    <div class="omostext hidden">
+     
+      <h2>PRODUKTER <h2> 
+        <p>Vi udvælger kun produkter, der er milde, bæredygtige og fri for skadelige stoffer uden at gå på kompromis med kvaliteten. Oplev vores nøje udvalgte brands, der giver sundt, stærkt og smukt hår.</p>
+            <a class="btn-book" href="https://kaktus.planway.com/" target="_blank" rel="noopener">
+             LÆS MERE
+              </a>
+        </div>
+    <div class="omosphoto hidden">
+        <img src="/photos/behandlinger.webp" alt="vores mission"  loading="lazy">
+    </div>
+    
+</section>
+
+<section class="omos3">
+    <div class="omosphoto hidden">
+            <img src="/photos/kaktusstore.webp" alt="kaktus hairsalon"  loading="lazy">
+        </div>
+        <div class="omostext hidden">
+           <h2>ÅBNINGSTIDER</h2>
+           <p>Mandag: 9:00 - 17:30<br>
+             Tirsdag:  9:00 - 17:30 <br>   
+            Onsdag:   9:00 - 17:30<br>      
+            Torsdag: 9:00 - 18:30  <br> 
+            Fredag:  9:00  - 18:30 <br>      
+            Lørdag:  9:00 - 13:30 <br>
+            Søndag:  Lukket  
+            
+    </div>
+    </section>
+
+
+
+
+<script type="module" src="/scripts/parallax.js" defer></script>
+</body>
+<style>
+
+.hidden {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+
+
+/* Visible state */
+.visible {
+  opacity: 1;
+  transform: translateY(0); /* Slide the element up to its original position */
+}
+.omos1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ background-color:#FBF4EC ;
+    } 
+   
+.omos2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color:#A7B8A1 ;
+ 
+    } 
+
+    .omos3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color:#FBF4EC ;
+ 
+    } 
+
+    .omostext h2{
+    text-align: center;
+  
+    }
+ 
+
+    .omostext p{
+    text-align: center;
+    color: black;
+    text-align: justify;
+    }
+
+    .omostext{
+        margin: 50px;
+        padding: 30px;
+    }
+
+    .omosphoto
+    img
+    {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+    
+     }
+     @media (max-width: 768px) {
+    .omos1
+    .omos2 
+    .omos3 {
+        grid-template-columns: 1fr; /* Switch to single-column layout */
+        text-align: center; /* Center text and images */
+    }
+
+    .omosphoto, .omostext {
+        margin: 20px; /* Adjust margins for smaller screens */
+    }
+
+ 
+    .omosphoto {
+    order: -1;
+  }
+}
+</style>
