@@ -1,0 +1,95 @@
+<section class="hero">
+    <div class="hero-left">
+      <div class="hero-copy">
+        <h1>VELKOMMEN TIL KAKTUS</h1>
+        <p class="subtitle">DIN GRØNNE FRISØR I HJERTET AF KØBENHAVN</p>
+        <p class="desc">
+          Hos Kaktus får du professionel behandling i afslappede og hyggelige omgivelser,
+          hvor bæredygtige valg, faglighed og nærvær går hånd i hånd.
+        </p>
+  
+        <a class="btn-book" href="https://kaktus.planway.com/" target="_blank" rel="noopener">
+          BOOK TID
+        </a>
+      </div>
+    </div>
+  
+    <div class="hero-right" aria-hidden="true"></div>
+  
+    <img
+      class="hero-overlay"
+      src="/photos/behandlinger.webp"
+      alt="Stemning i salonen"
+      loading="eager"
+    />
+  </section>
+  
+  <style>
+    .hero{
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 70vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+  
+    .hero-left{
+      background: #A7B8A1;
+      display: flex;
+      align-items: center;
+      padding: clamp(24px, 5vw, 72px);
+      position: relative;
+      z-index: 2; /* keep text above */
+    }
+  
+    .hero-right{
+      position: relative;
+      z-index: 1; /* visible behind overlay */
+      min-height: 100%;
+      background: url("/photos/veggur.webp") center / cover no-repeat;
+    }
+  
+    .hero-overlay{
+      position: absolute;
+      z-index: 3;
+      right: clamp(16px, 4vw, 60px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(500px, 42vw); /* IMPORTANT: slightly smaller so wall can show */
+      height: auto;
+      border-radius: 18px;
+      border: 2px solid rgba(255,255,255,0.7);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    }
+  
+    .hero-copy{ max-width: 520px; }
+    .hero h1{ margin: 0 0 10px; font-size: clamp(28px, 3.2vw, 54px); }
+    .subtitle{ margin: 0 0 18px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .desc{ margin: 0 0 28px; line-height: 1.55; max-width: 46ch; }
+  
+    .btn-book{
+      display: inline-flex;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: #8FD2C9;
+      color: #111;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+  
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; height: auto; min-height: 0; }
+      .hero-right{ height: 220px; }
+      .hero-overlay{
+        position: static;
+        transform: none;
+        width: calc(100% - 40px);
+        margin: 18px auto 24px;
+        display: block;
+      }
+    }
+  </style>
+  
