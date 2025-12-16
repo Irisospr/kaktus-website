@@ -1,0 +1,42 @@
+.site-header {
+  background: #fbf4ec; /* your light background */
+  padding: 24px 32px;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo img {
+  width: 110px;
+  height: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+}
+
+.btn-book {
+  background: #8fd2c9;
+  color: #111;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
