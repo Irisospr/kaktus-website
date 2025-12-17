@@ -9,8 +9,8 @@ const sections = [
       { name: "Klip/børn 0-5 år", price: "350,00 DKK" },
       { name: "Klip/børn 6-12 år (small)", price: "390,00 DKK" },
       { name: "Klip/børn m. vask/føn (medium)", price: "490,00 DKK" },
-      { name: "Voks og fjer", price: "440,00 DKK" },
-      { name: "Klip og pandehår", price: "195,00 DKK" },
+      { name: "Vask og føn", price: "440,00 DKK" },
+      { name: "Klip af pandehår", price: "195,00 DKK" },
     ],
   },
 
@@ -47,9 +47,7 @@ const sections = [
 
   {
     title: "TONER SOM TILLÆG (KUN TIL BOOKING MED STRIBER)",
-    rows: [
-      { name: "Toner som tillæg (30 min)", price: "450,00 DKK" },
-    ],
+    rows: [{ name: "Toner som tillæg (30 min)", price: "450,00 DKK" }],
   },
 
   {
@@ -118,14 +116,14 @@ const sections = [
 </div>
 
 <script>
-  document.querySelectorAll('[data-accordion]').forEach((root) => {
+  document.querySelectorAll("[data-accordion]").forEach((root) => {
     root.addEventListener(
-      'toggle',
+      "toggle",
       (e) => {
         if (!(e.target instanceof HTMLDetailsElement)) return;
         if (!e.target.open) return;
 
-        root.querySelectorAll('details').forEach((d) => {
+        root.querySelectorAll("details").forEach((d) => {
           if (d !== e.target) d.open = false;
         });
       },
@@ -135,12 +133,14 @@ const sections = [
 </script>
 
 <style>
+  /* OUTER BOX (brown) */
   .price-accordion {
-    width: min(520px, 92vw);
+    width: min(560px, 92vw);
     margin: 0 auto;
     background: #d6c0b3;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    padding: 20px 18px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    padding: 26px 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   }
 
   .acc-item {
@@ -162,21 +162,23 @@ const sections = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 6px;
+    padding: 18px 10px;
     cursor: pointer;
   }
 
   .acc-title {
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 16px;
   }
 
+  /* Plus / minus */
   .acc-icon {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     position: relative;
-    flex: 0 0 18px;
+    flex: 0 0 22px;
+    opacity: 0.8;
   }
   .acc-icon::before,
   .acc-icon::after {
@@ -184,8 +186,8 @@ const sections = [
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 16px;
-    height: 1.5px;
+    width: 20px;
+    height: 2px;
     background: rgba(0, 0, 0, 0.7);
     transform: translate(-50%, -50%);
   }
@@ -196,42 +198,55 @@ const sections = [
     display: none;
   }
 
+  /* PANEL WRAP */
   .acc-panel {
-    padding: 0 6px 14px;
+    padding: 0 10px 18px;
   }
 
+  /* INNER LIST (cream) */
   .acc-list {
     margin: 0;
     padding: 0;
     list-style: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    background: #fbf4ec;
+    border: 1px solid rgba(0, 0, 0, 0.12);
   }
 
+  /* ROWS + MINT LINES */
   .acc-row {
     display: flex;
     justify-content: space-between;
     gap: 16px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
-    font-size: 13px;
+    padding: 16px 18px;
+    font-size: 16px;
+
+    border-bottom: 1px solid #8fd2c9; /* mint lines */
+  }
+
+  .acc-row:last-child {
+    border-bottom: none;
   }
 
   .acc-name {
     opacity: 0.95;
+    line-height: 1.2;
   }
+
   .acc-price {
     white-space: nowrap;
   }
 
   @media (max-width: 480px) {
     .price-accordion {
-      padding: 16px 14px;
+      padding: 18px 14px;
     }
     .acc-title {
-      font-size: 13px;
+      font-size: 14px;
     }
     .acc-row {
-      font-size: 12.5px;
+      font-size: 14px;
+      padding: 14px 14px;
     }
   }
 </style>
+
