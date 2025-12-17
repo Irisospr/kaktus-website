@@ -80,16 +80,39 @@
       border: 1px solid rgba(255,255,255,0.6);
     }
   
-    @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; height: auto; min-height: 0; }
-      .hero-right{ height: 220px; }
-      .hero-overlay{
-        position: static;
-        transform: none;
-        width: calc(100% - 40px);
-        margin: 18px auto 24px;
-        display: block;
-      }
-    }
+    @media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  /* stone wall area */
+  .hero-right {
+    height: 320px;              
+    min-height: 320px;
+    position: relative;
+  }
+
+
+  .hero-overlay {
+    position: absolute;         
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+    width: min(360px, 82vw);    
+    height: auto;
+    margin: 0;
+    display: block;
+    border-radius: 18px;
+  }
+
+  /* spacing for the green text block */
+  .hero-left {
+    padding: 28px 22px;
+  }
+}
+
+
   </style>
   

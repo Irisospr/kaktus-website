@@ -51,6 +51,27 @@ h1 {
   font-family: "arboria", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 60px;
+}
+h2 {
+  font-family: "arboria", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}
+
+h3 {
+  font-family: "arboria", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+}
+
+h4 {
+  font-family: "arboria", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
 }
 
 .behandlinger-page {
@@ -61,5 +82,3 @@ h1 {
 .behandlinger-wrapper {
   padding: 80px 0;
 }
-
-

@@ -92,20 +92,33 @@
     
      }
      @media (max-width: 768px) {
-    .omos1
-    .omos2 
-    .omos3 {
-        grid-template-columns: 1fr; /* Switch to single-column layout */
-        text-align: center; /* Center text and images */
-    }
+  .omos1, .omos2 {
+    grid-template-columns: 1fr;
+  }
 
-    .omosphoto, .omostext {
-        margin: 20px; /* Adjust margins for smaller screens */
-    }
+  .omostext{
+    margin: 22px;
+    padding: 0; /* remove big padding on mobile */
+  }
 
- 
-    .omosphoto {
-    order: -1;
+  .omosphoto{
+    margin: 0;
+  }
+
+  /* Text first, image after (like your screenshot) */
+  .omos1 .omostext, .omos2 .omostext { order: 1; }
+  .omos1 .omosphoto, .omos2 .omosphoto { order: 2; }
+
+  .omosphoto img{
+    width: 100%;
+    height: auto;
+    border-radius: 0; /* optional: cleaner full-width look */
+    display: block;
+  }
+
+  .btn-book{
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 14px;
   }
 }
-</style>

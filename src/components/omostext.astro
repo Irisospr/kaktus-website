@@ -7,8 +7,7 @@
     <div class="omostext hidden">
        <h2>OM SALONEN</h2>
        <p>Kaktus er en grøn frisørsalon i hjertet af København, hvor islandsk håndværk møder bæredygtige værdier. Salonen ligger på hyggelige Fiolstræde, omgivet af byliv og kreativ atmosfære. Her prioriterer vi nærvær, kvalitet og et trygt rum, hvor du kan læne dig tilbage og nyde en behandling, der er skabt med omtanke.
-
-        Vi er et lille islandsk team med mange års erfaring inden for hår, makeup og styling – både fra saloner, teater og modeshows. Hos os får du effektiv, professionel service uden at gå på kompromis med hverken miljøet eller din sundhed. Vi vælger alle produkter med stor omhu og arbejder kun med skånsomme farver og miljøvenlige alternativer.</p>
+Vi er et lille islandsk team med mange års erfaring inden for hår, makeup og styling, både fra saloner, teater og modeshows. Hos os får du effektiv, professionel service uden at gå på kompromis med hverken miljøet eller din sundhed. Vi vælger alle produkter med stor omhu og arbejder kun med skånsomme farver og miljøvenlige alternativer.</p>
 </div>
 </section>
 
@@ -16,10 +15,9 @@
     <div class="omostext hidden">
      
       <h2>VORES MISSION <h2> 
-        <p>Vores mission er at skabe en frisøroplevelse, hvor skønhed, velvære og bæredygtighed går hånd i hånd. Vi tror på, at selv små valg gør en forskel – både for dig, for os som frisører og for naturen omkring os.
-
-            Som islandsk team er vi stærkt formet af naturen og dens rå skønhed. Den inspirerer os hver dag til at arbejde grønnere, vælge rene produkter og skabe et miljø, hvor både mennesker og planeten bliver behandlet med respekt.
-            Vi ønsker at give dig en behandling, der føles god – ikke kun når du forlader stolen, men også i hjertet.</p>
+        <p>Vores mission er at skabe en frisøroplevelse, hvor skønhed, velvære og bæredygtighed går hånd i hånd. Vi tror på, at selv små valg gør en forskel, både for dig, for os som frisører og for naturen omkring os.
+ Som islandsk team er vi stærkt formet af naturen og dens rå skønhed. Den inspirerer os hver dag til at arbejde grønnere, vælge rene produkter og skabe et miljø, hvor både mennesker og planeten bliver behandlet med respekt.
+            Vi ønsker at give dig en behandling, der føles god, ikke kun når du forlader stolen, men også i hjertet.</p>
          </div>
     <div class="omosphoto hidden">
         <img src="/photos/mission.webp" alt="vores mission"  loading="lazy">
@@ -84,19 +82,35 @@
     
      }
      @media (max-width: 768px) {
-    .omos1
-    .omos2 {
-        grid-template-columns: 1fr; /* Switch to single-column layout */
-        text-align: center; /* Center text and images */
-    }
+  .omos1, .omos2 {
+    grid-template-columns: 1fr;
+  }
 
-    .omosphoto, .omostext {
-        margin: 20px; /* Adjust margins for smaller screens */
-    }
+  .omostext{
+    margin: 22px;
+    padding: 0; /* remove big padding on mobile */
+  }
 
- 
-    .omosphoto {
-    order: -1;
+  .omosphoto{
+    margin: 0;
+  }
+
+  /* Text first, image after (like your screenshot) */
+  .omos1 .omostext, .omos2 .omostext { order: 1; }
+  .omos1 .omosphoto, .omos2 .omosphoto { order: 2; }
+
+  .omosphoto img{
+    width: 100%;
+    height: auto;
+    border-radius: 0; /* optional: cleaner full-width look */
+    display: block;
+  }
+
+  .btn-book{
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 14px;
   }
 }
+
 </style>
