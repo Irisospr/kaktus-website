@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+import Header from "../components/header.astro";
+import Parallaxphoto3 from "../components/parallaxphoto3.astro";
+import Ktext from "../components/ktext.astro";
+import AfbudspolitikSection from "../components/AfbudspolitikSection.astro";
+import Footer from "../components/footer.astro";
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaktus</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+        <Parallaxphoto3 /> 
+        <Ktext />
+        <AfbudspolitikSection/> 
+    </main>
+
+    <Footer />
+  </body>
+</html>

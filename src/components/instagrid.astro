@@ -1,0 +1,83 @@
+---
+const posts = [
+  {
+    href: "https://www.instagram.com/kaktushairsalon//", 
+    src: "/photos/galleri1.webp",
+    alt: "Instagram post 1",
+  },
+  {
+    href: "https://www.instagram.com/kaktushairsalon/",
+    src: "/photos/galleri2.webp",
+    alt: "Instagram post 2",
+  },
+  {
+    href: "https://www.instagram.com/kaktushairsalon/",
+    src: "/photos/galleri3.webp",
+    alt: "Instagram post 3",
+  },
+];
+---
+
+<section class="insta">
+  <h2 class="insta-title">FØLG MED PÅ INSTAGRAM</h2>
+
+  <div class="insta-grid">
+    {posts.map((p) => (
+      <a class="insta-card" href={p.href} target="_blank" rel="noopener noreferrer">
+        <img src={p.src} alt={p.alt} loading="lazy" />
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .insta {
+    background: #D6C0B3; /* your beige/brown */
+    padding: clamp(28px, 5vw, 60px) 20px;
+  }
+
+  .insta-title {
+    text-align: center;
+    margin: 0 0 18px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: clamp(14px, 1.4vw, 18px);
+  }
+
+  .insta-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: center;
+  }
+
+  .insta-card {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .insta-card:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+
+  .insta-card img {
+    width: 100%;
+    height: 220px;       /* controls “not too big” */
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .insta-grid {
+      grid-template-columns: 1fr;
+    }
+    .insta-card img {
+      height: 240px;
+    }
+  }
+</style>
