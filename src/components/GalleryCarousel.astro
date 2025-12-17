@@ -1,0 +1,184 @@
+---
+const images = [
+  { src: "/photos/galleri1.webp", alt: "Salon view 1" },
+  { src: "/photos/galleri2.webp", alt: "Salon view 2" },
+  { src: "/photos/galleri3.webp", alt: "Salon view 3" },
+  { src: "/photos/galleri4.webp", alt: "Salon view 4" },
+  { src: "/photos/galleri5.webp", alt: "Salon view 5" },
+  { src: "/photos/galleri6.webp", alt: "Salon view 6" },
+  { src: "/photos/galleri7.webp", alt: "Salon view 7" },
+  { src: "/photos/galleri8.webp", alt: "Salon view 8" },
+];
+
+const galleryId = "kaktus-gallery";
+---
+
+<section class="gallery" id={galleryId} aria-label="Galleri">
+  <button class="nav prev" type="button" aria-label="Forrige billeder">‹</button>
+
+  <div class="viewport">
+    <ul class="track">
+      {images.map((img: { src: string; alt: string }, i: number) => (
+        <li class="slide" data-index={i}>
+          <img src={img.src} alt={img.alt} loading="lazy" />
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <button class="nav next" type="button" aria-label="Næste billeder">›</button>
+
+  <div class="dots" aria-label="Navigation prikker">
+    {images.map((_: unknown, i: number) => (
+      <button
+        class="dot"
+        type="button"
+        data-dot={i}
+        aria-label={`Gå til billede ${i + 1}`}
+      />
+    ))}
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    // 👇 Astro injicer string korrekt her:
+    const galleryId = "kaktus-gallery";
+
+    const root = document.getElementById(galleryId);
+    if (!root) return;
+
+    const track = root.querySelector(".track");
+    const slides = Array.from(root.querySelectorAll(".slide"));
+    const prev = root.querySelector(".prev");
+    const next = root.querySelector(".next");
+    const dots = Array.from(root.querySelectorAll(".dot"));
+
+    if (!track || !prev || !next) return;
+
+    let index = 0;
+
+    const getPerView = () => (window.matchMedia("(max-width: 768px)").matches ? 1 : 3);
+
+    const clampIndex = (i) => {
+      const perView = getPerView();
+      const maxIndex = Math.max(0, slides.length - perView);
+      return Math.min(Math.max(0, i), maxIndex);
+    };
+
+    function update() {
+      const perView = getPerView();
+      index = clampIndex(index);
+
+      // flyt én “slide” ad gangen (men med 3 synlige)
+      const step = 100 / perView;
+      track.style.transform = `translateX(-${index * step}%)`;
+
+      dots.forEach((d, i) => d.classList.toggle("active", i === index));
+    }
+
+    prev.addEventListener("click", () => {
+      index = clampIndex(index - 1);
+      update();
+    });
+
+    next.addEventListener("click", () => {
+      index = clampIndex(index + 1);
+      update();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        index = clampIndex(i);
+        update();
+      });
+    });
+
+    window.addEventListener("resize", update);
+
+    update();
+  })();
+</script>
+
+<style>
+  .gallery {
+    position: relative;
+    max-width: 1024px;
+    margin: 40px auto;
+    padding: 0 18px;
+  }
+
+  .viewport {
+    overflow: hidden;
+  }
+
+  .track {
+    display: flex;
+    transition: transform 0.35s ease;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* 3 pr view på desktop */
+  .slide {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 340px;      
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255,255,255,0.85);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+  }
+
+  .prev { left: 6px; }
+  .next { right: 6px; }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(0,0,0,0.25);
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background: rgba(0,0,0,0.75);
+  }
+
+  /* Mobil: 1 pr view */
+  @media (max-width: 768px) {
+    .slide { flex-basis: 100%; }
+    .slide img { height: 420px; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  }
+</style>
