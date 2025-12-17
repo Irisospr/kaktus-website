@@ -1,0 +1,237 @@
+---
+type Category = "Ingredien" | "Kevin Murphy";
+
+type Product = {
+  title: string;
+  brand: string;
+  category: Category;
+  img: string;
+};
+
+const products: Product[] = [
+  // INGREDIEN (first 6)
+  { title: "Dry Structure Hair Wax", brand: "Ingredien", category: "Ingredien", img: "/photos/ingredien1.webp" },
+  { title: "Silky Paste Hair Wax", brand: "Ingredien", category: "Ingredien", img: "/photos/ingredien2.webp" },
+  { title: "Curl Design Volume", brand: "Ingredien", category: "Ingredien", img: "/photos/ingredien3.webp" },
+  { title: "Soft Leave-in Conditioner", brand: "Ingredien", category: "Ingredien", img: "/photos/ingredien4.webp" },
+  { title: "Silver Intense Shampoo", brand: "Ingredien", category: "Ingredien", img: "/photos/ingredien5.webp" },
+  { title: "Deep Cleansing Shampoo", brand: "Ingredien", category: "Ingredien", img: "/photos/ingredien6.webp" },
+
+  // KEVIN MURPHY (last 6)
+  { title: "Dry Powder Finishing Hair Spray", brand: "Kevin Murphy", category: "Kevin Murphy", img: "/photos/km1.webp" },
+  { title: "Dry Shampoo", brand: "Kevin Murphy", category: "Kevin Murphy", img: "/photos/km2.webp" },
+  { title: "Heat-Activated Style Extender", brand: "Kevin Murphy", category: "Kevin Murphy", img: "/photos/km3.webp" },
+  { title: "Densifying Conditioner", brand: "Kevin Murphy", category: "Kevin Murphy", img: "/photos/km4.webp" },
+  { title: "Detox Shampoo Coloured Hair", brand: "Kevin Murphy", category: "Kevin Murphy", img: "/photos/km5.webp" },
+  { title: "Young Again Dry Conditioner", brand: "Kevin Murphy", category: "Kevin Murphy", img: "/photos/km6.webp" },
+];
+---
+
+<section class="shop" data-shop>
+  <div class="shop-inner">
+    <h1 class="shop-title">PRODUKTER</h1>
+
+    <!-- Filter dropdown (CLOSED by default) -->
+    <aside class="filters" aria-label="Filtrering">
+      <button
+        class="filter-toggle"
+        type="button"
+        data-filter-toggle
+        aria-expanded="false"
+      >
+        KATEGORIER:
+        <span class="toggle-icon" aria-hidden="true">+</span>
+      </button>
+
+      <!-- IMPORTANT: hidden is present so it starts closed -->
+      <div class="filter-panel" data-filter-panel hidden>
+        <button class="filter-btn" type="button" data-filter="all">Alle</button>
+        <button class="filter-btn" type="button" data-filter="Ingredien">Ingredien</button>
+        <button class="filter-btn" type="button" data-filter="Kevin Murphy">Kevin Murphy</button>
+      </div>
+    </aside>
+
+    <!-- GRID -->
+    <section class="grid" aria-label="Produkter">
+      {products.map((p: Product) => (
+        <a class="card" href="/produkt" data-category={p.category}>
+          <div class="card-img">
+            <img src={p.img} alt={`${p.title} ${p.brand}`} loading="lazy" />
+          </div>
+          <p class="card-title">{p.title.toUpperCase()}</p>
+          <p class="card-brand">{p.brand.toUpperCase()}</p>
+        </a>
+      ))}
+    </section>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-shop]");
+    if (!root) return;
+
+    const toggle = root.querySelector("[data-filter-toggle]");
+    const panel = root.querySelector("[data-filter-panel]");
+    const icon = root.querySelector(".toggle-icon");
+
+    const cards = Array.from(root.querySelectorAll(".card"));
+    const buttons = Array.from(root.querySelectorAll(".filter-btn"));
+
+    if (!toggle || !panel) return;
+
+    // ✅ Force CLOSED state on load (even if something else made it open)
+    toggle.setAttribute("aria-expanded", "false");
+    panel.hidden = true;
+    if (icon) icon.textContent = "+";
+
+    // open/close filter dropdown
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      const nextOpen = !isOpen;
+
+      toggle.setAttribute("aria-expanded", String(nextOpen));
+      panel.hidden = !nextOpen;
+
+      if (icon) icon.textContent = nextOpen ? "—" : "+";
+    });
+
+    // filtering
+    function applyFilter(value) {
+      cards.forEach((card) => {
+        const cat = card.getAttribute("data-category");
+        const show = value === "all" || cat === value;
+        card.style.display = show ? "" : "none";
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const value = btn.getAttribute("data-filter") || "all";
+        applyFilter(value);
+
+        // close dropdown after selection
+        toggle.setAttribute("aria-expanded", "false");
+        panel.hidden = true;
+        if (icon) icon.textContent = "+";
+      });
+    });
+
+    applyFilter("all");
+  })();
+</script>
+
+<style>
+  .shop{
+    background: #A7B8A1;
+    padding: 40px 0 70px;
+  }
+
+  .shop-inner{
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+  }
+
+  .shop-title{
+    text-align: center;
+    margin: 10px 0 26px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Filter box */
+  .filters{
+    width: 220px;
+    margin: 0 0 18px;
+  }
+
+  .filter-toggle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FBF4EC;
+    border: 1px solid rgba(0,0,0,0.25);
+    padding: 10px 12px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+
+  .filter-panel{
+    background: #FBF4EC;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-top: 0;
+    padding: 10px 12px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .filter-btn{
+    text-align: left;
+    background: transparent;
+    border: 0;
+    padding: 6px 0;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+  }
+  .filter-btn:hover{
+    text-decoration: underline;
+  }
+
+  /* Grid */
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+  }
+
+  .card{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 180ms ease;
+  }
+
+  .card:hover{
+    transform: scale(1.03);
+  }
+
+  .card-img{
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .card-img img{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-title{
+    margin: 10px 0 2px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .card-brand{
+    margin: 0;
+    font-size: 11px;
+    opacity: 0.9;
+    letter-spacing: 0.06em;
+  }
+
+  /* Tablet/mobile: 2 per row */
+  @media (max-width: 860px){
+    .grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .card-img img{ height: 220px; }
+  }
+
+  @media (max-width: 480px){
+    .filters{ width: 100%; }
+    .card-img img{ height: 200px; }
+  }
+</style>

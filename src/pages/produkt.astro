@@ -1,0 +1,168 @@
+---
+import "../styles/global.css";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Produkt | Kaktus</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <main class="product">
+      <section class="product-inner">
+        <div class="product-img">
+          <img src="/photos/ingredien1.webp" alt="Produkt" loading="eager" />
+        </div>
+
+        <div class="product-info">
+          <h1>DRY STRUCTURE<br />HAIR WAX<br />INGREDIEN</h1>
+
+          <p class="meta">239,00 DKK<br />100ML</p>
+
+          <details class="p-acc" open>
+            <summary class="p-sum">
+              <span>PRODUKTBESKRIVELSE</span>
+              <span class="p-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="p-body">
+              <p>
+                Har du brug for en stærk hårvoks til dit korte hår? ingredien® Dry  Structure Wax giver dig kontrol over din frisure - hele dagen. Med sit  fleksible hold, er det dog også muligt at ændre på frisuren løbende,  hvis du skulle få lyst til det.
+                Voksen tilfører hårstråene et godt hold, og en mat finish. Dette vil give din frisure et mere kontrolleret udseende.
+                Dry Structure Wax er baseret på planteolier. Da planteolierne ikke  tilstopper porerne, vil du opleve mindre irritation i hovedbunden. Ved  brug af denne hårvoks kan du således slippe for problemer som rødme,  kløe, skæl eller bumser.
+                Voksen indeholder plejende ingredienser, som f.eks. jojobaolie og  sheasmør. Jojobaolien tilfører håret fugt, mens sheasmør virker  blødgørende. Ingredienserne gør således håret mere medgørligt at arbejde med.
+                Dry Structure Wax kan fås med, eller uden parfume. Vi bruger en  neutral parfume. Derudover bruger vi en lille mængde, så dit hår ikke  bliver overdynget med parfume.
+                Hårvoksen er Svanemærket. Med denne voks får du således et bæredygtigt og effektivt produkt.
+                Har du brug for en shampoo der fjerner produktrester effektivt? Så  kan du med fordel kombinere din hårvoks med ingredien® Cleansing  Shampoo. Denne shampoo er specielt udviklet til at fjerne urenheder fra  hår og hovedbund i dybden. Ligesom hårvoksen, bærer også shampooen  Svanemærket.
+              </p>
+            </div>
+          </details>
+
+          <details class="p-acc">
+            <summary class="p-sum">
+              <span>INGREDIENSER</span>
+              <span class="p-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="p-body">
+              <p>
+                Alcohol, Aqua, Cetyl  Alcohol, Citric Acid, Glycerin, Glycine Soja Oil, PEG-30  Dipolyhydroxystearate, PVP, Phenoxyethanol, Polyglyceryl-6 Behenate,  Polyglyceryl-6 Stearate, Polyquaternium-10, Sodium Benzoate, Sodium  Chloride, Tocopherol, Trihydroxystearin
+              </p>
+            </div>
+          </details>
+
+          <a class="btn-cart" href="#" role="button">LÆG I KURV</a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <style>
+      .product{
+        background:#A7B8A1;
+        padding: 40px 18px 80px;
+      }
+
+      .product-inner{
+        max-width: 1100px;
+        margin: 0 auto;
+        display:grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items:start;
+      }
+
+      .product-img img{
+        width:100%;
+        border-radius: 0px;
+        display:block;
+      }
+
+      .product-info h1{
+        margin:0 0 14px;
+        letter-spacing: 0.04em;
+        line-height: 1.05;
+      }
+
+      .meta{
+        margin:0 0 18px;
+        letter-spacing: 0.04em;
+      }
+
+      .p-acc{
+        border-top: 1px solid rgba(0,0,0,0.45);
+        padding: 14px 0;
+      }
+      .p-acc:last-of-type{
+        border-bottom: 1px solid rgba(0,0,0,0.45);
+      }
+
+      summary::-webkit-details-marker{ display:none; }
+      summary{ list-style:none; }
+
+      .p-sum{
+        display:flex;
+        justify-content: space-between;
+        align-items:center;
+        cursor:pointer;
+        letter-spacing: 0.06em;
+      }
+
+      .p-icon{
+        width:18px; height:18px; position:relative; flex:0 0 18px;
+      }
+      .p-icon::before,
+      .p-icon::after{
+        content:"";
+        position:absolute;
+        left:50%; top:50%;
+        width:16px; height:1.6px;
+        background:#111;
+        transform:translate(-50%,-50%);
+      }
+      .p-icon::after{ transform:translate(-50%,-50%) rotate(90deg); }
+      details[open] .p-icon::after{ display:none; }
+
+      .p-body{
+        padding-top: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .btn-cart{
+        margin-top: 22px;
+        display:inline-flex;
+        justify-content:center;
+        align-items:center;
+        padding: 14px 28px;
+        border-radius:999px;
+        background:#8FD2C9;
+        color:#111;
+        text-decoration:none;
+        border: 1px solid rgba(255,255,255,0.55);
+        transition: transform .15s ease, filter .15s ease;
+      }
+      .btn-cart:hover{
+        transform: scale(1.03);
+        filter: brightness(1.02);
+      }
+
+      /* Mobile product layout */
+      @media (max-width: 900px){
+        .product-inner{
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+
+        .product-info{
+          padding: 0 4px;
+        }
+      }
+    </style>
+  </body>
+</html>
