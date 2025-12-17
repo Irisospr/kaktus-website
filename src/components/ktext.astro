@@ -1,0 +1,97 @@
+<section class="contact-wrap">
+  <div class="contact-grid">
+    <div class="map">
+      <!-- easiest: iframe from Google Maps -->
+      <iframe
+        title="Kaktus på kort"
+        src="https://www.google.com/maps?q=Fiolstr%C3%A6de%2027%2C%201171%20K%C3%B8benhavn%20K&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <div class="info">
+      <h2>BESØG VORES HYGGELIGE SALON</h2>
+
+      <h3>ADRESSE</h3>
+      <p>Fiolstræde 27<br />1171 København K</p>
+
+      <h3>ÅBNINGSTIDER</h3>
+      <ul>
+        <li><span>Mandag</span><span>9:00 – 17:30</span></li>
+        <li><span>Tirsdag</span><span>9:00 – 17:30</span></li>
+        <li><span>Onsdag</span><span>9:00 – 17:30</span></li>
+        <li><span>Torsdag</span><span>9:00 – 18:30</span></li>
+        <li><span>Fredag</span><span>9:00 – 18:30</span></li>
+        <li><span>Lørdag</span><span>9:00 – 13:30</span></li>
+        <li><span>Søndag</span><span>Lukket</span></li>
+      </ul>
+
+      <p class="contact-lines">
+        Email: kaktushairsalon@gmail.com<br />
+        Tlf: 61221999
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-wrap{
+    background: #FBF4EC;
+    padding: clamp(28px, 5vw, 64px) clamp(18px, 4vw, 64px);
+  }
+
+  .contact-grid{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(20px, 4vw, 60px);
+    align-items: start;
+  }
+
+  .map iframe{
+    width: 100%;
+    height: 340px;
+    border: 0;
+    border-radius: 12px;
+  }
+
+  .info h2{
+    margin: 0 0 18px;
+    letter-spacing: .08em;
+  }
+
+  .info h3{
+    margin: 18px 0 6px;
+    letter-spacing: .06em;
+  }
+
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: grid;
+    gap: 6px;
+    max-width: 320px;
+  }
+
+  li{
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .contact-lines{
+    margin-top: 18px;
+  }
+
+  @media (max-width: 900px){
+    .contact-grid{
+      grid-template-columns: 1fr;
+    }
+    .map iframe{
+      height: 260px;
+    }
+  }
+</style>

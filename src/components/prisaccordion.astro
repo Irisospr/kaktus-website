@@ -1,0 +1,237 @@
+---
+const sections = [
+  {
+    title: "KLIP",
+    rows: [
+      { name: "Klip – Small", price: "440,00 DKK" },
+      { name: "Klip – Medium", price: "540,00 DKK" },
+      { name: "Klip – Large", price: "650,00 DKK" },
+      { name: "Klip/børn 0-5 år", price: "350,00 DKK" },
+      { name: "Klip/børn 6-12 år (small)", price: "390,00 DKK" },
+      { name: "Klip/børn m. vask/føn (medium)", price: "490,00 DKK" },
+      { name: "Voks og fjer", price: "440,00 DKK" },
+      { name: "Klip og pandehår", price: "195,00 DKK" },
+    ],
+  },
+
+  {
+    title: "HÅRKUR/TREATMENT",
+    rows: [
+      { name: "K-18 – Molekylær uden klip (45 min)", price: "490,00 DKK" },
+      { name: "Hårkur/treatment", price: "500,00 DKK" },
+    ],
+  },
+
+  {
+    title: "STRIBER – BALAYAGE – BABYLIGHTS",
+    rows: [
+      { name: "Striber small (120 min)", price: "1090,00 DKK" },
+      { name: "Striber medium (120 min)", price: "1290,00 DKK" },
+      { name: "Striber large (120 min)", price: "1490,00 DKK" },
+      { name: "Striber x-large (120 min)", price: "1890,00 DKK" },
+      { name: "Balayage small (120 min)", price: "2000,00 DKK" },
+      { name: "Balayage medium (120 min)", price: "2300,00 DKK" },
+      { name: "Balayage large (120 min)", price: "2500,00 DKK" },
+    ],
+  },
+
+  {
+    title: "TONER",
+    rows: [
+      { name: "Toner small (90 min)", price: "790,00 DKK" },
+      { name: "Toner medium (90 min)", price: "890,00 DKK" },
+      { name: "Toner large (90 min)", price: "990,00 DKK" },
+      { name: "Toner x-large (90 min)", price: "1190,00 DKK" },
+    ],
+  },
+
+  {
+    title: "TONER SOM TILLÆG (KUN TIL BOOKING MED STRIBER)",
+    rows: [
+      { name: "Toner som tillæg (30 min)", price: "450,00 DKK" },
+    ],
+  },
+
+  {
+    title: "FARVER",
+    rows: [
+      { name: "Farvning small (90 min)", price: "890,00 DKK" },
+      { name: "Farvning medium (105 min)", price: "1090,00 DKK" },
+      { name: "Farvning large (120 min)", price: "1290,00 DKK" },
+      { name: "Farvning x-large (120 min)", price: "1490,00 DKK" },
+      { name: "Afpigmentering toner small (150 min)", price: "1200,00 DKK" },
+      { name: "Afpigmentering toner medium (150 min)", price: "1400,00 DKK" },
+      { name: "Afpigmentering toner large (45 min)", price: "1700,00 DKK" },
+    ],
+  },
+
+  {
+    title: "FARVE/BRYN OG VIPPER",
+    rows: [
+      { name: "Farve/bryn og vipper (30 min)", price: "390,00 DKK" },
+      { name: "Farve bryn (15 min)", price: "195,00 DKK" },
+      { name: "Farve vipper (15 min)", price: "195,00 DKK" },
+    ],
+  },
+
+  {
+    title: "STYLING/BRYLLUP OG FEST",
+    rows: [
+      { name: "Styling (60 min)", price: "800,00 DKK" },
+      { name: "Bryllup og fest (175 min)", price: "1600,00 DKK" },
+    ],
+  },
+
+  {
+    title: "PERMANENT",
+    rows: [
+      { name: "Permanent/top (103 min)", price: "790,00 DKK" },
+      { name: "Permanent small (120 min)", price: "1190,00 DKK" },
+      { name: "Permanent medium (150 min)", price: "1390,00 DKK" },
+      { name: "Permanent large (150 min)", price: "1590,00 DKK" },
+      { name: "Permanent x-large (180 min)", price: "1790,00 DKK" },
+    ],
+  },
+];
+---
+
+<div class="price-accordion" data-accordion>
+  {sections.map((s) => (
+    <details class="acc-item">
+      <summary class="acc-summary">
+        <span class="acc-title">{s.title}</span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+
+      <div class="acc-panel">
+        <ul class="acc-list">
+          {s.rows.map((r) => (
+            <li class="acc-row">
+              <span class="acc-name">{r.name}</span>
+              <span class="acc-price">{r.price}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('[data-accordion]').forEach((root) => {
+    root.addEventListener(
+      'toggle',
+      (e) => {
+        if (!(e.target instanceof HTMLDetailsElement)) return;
+        if (!e.target.open) return;
+
+        root.querySelectorAll('details').forEach((d) => {
+          if (d !== e.target) d.open = false;
+        });
+      },
+      true
+    );
+  });
+</script>
+
+<style>
+  .price-accordion {
+    width: min(520px, 92vw);
+    margin: 0 auto;
+    background: #d6c0b3;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 20px 18px;
+  }
+
+  .acc-item {
+    border-top: 1px solid rgba(0, 0, 0, 0.35);
+    padding: 0;
+  }
+  .acc-item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary {
+    list-style: none;
+  }
+
+  .acc-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 6px;
+    cursor: pointer;
+  }
+
+  .acc-title {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .acc-icon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    flex: 0 0 18px;
+  }
+  .acc-icon::before,
+  .acc-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 16px;
+    height: 1.5px;
+    background: rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%);
+  }
+  .acc-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  details[open] .acc-icon::after {
+    display: none;
+  }
+
+  .acc-panel {
+    padding: 0 6px 14px;
+  }
+
+  .acc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  .acc-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+    font-size: 13px;
+  }
+
+  .acc-name {
+    opacity: 0.95;
+  }
+  .acc-price {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .price-accordion {
+      padding: 16px 14px;
+    }
+    .acc-title {
+      font-size: 13px;
+    }
+    .acc-row {
+      font-size: 12.5px;
+    }
+  }
+</style>
