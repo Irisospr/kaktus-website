@@ -72,6 +72,7 @@ h4 {
 .behandlinger-wrapper {
   padding: 80px 0;
 }
+
 .btn,
 .btn-book {
   display: inline-flex;
@@ -102,6 +103,65 @@ h4 {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+.behandlinger-page {
+  background: #a7b8a1;
+  padding-bottom: 60px;
+}
+
+/* Centered text block */
+.behandlinger-intro {
+  width: min(520px, 86vw);
+  margin: 0 auto;
+  text-align: center;
+  padding: 34px 0 18px;
+}
+
+.behandlinger-title {
+  margin: 15px 0 10px;
+  font-family: "arboria", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px; /* desktop */
+  letter-spacing: 0.04em;
+  border-bottom: 10px;
+}
+
+.behandlinger-text {
+  margin: 0 auto 34px;
+  font-family: "montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  line-height: 1.45;
+  max-width: 42ch;
+  text-align: justify;
+}
+
+/* “PRISLISTE” block */
+.pris-title {
+  margin: 0 0 6px;
+  font-family: "arboria", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  letter-spacing: 0.04em;
+}
+
+.pris-subtitle {
+  margin: 0 0 18px;
+  font-family: "arboria", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+}
+
+/* Wrapper for accordion + button */
+.behandlinger-wrapper {
+  display: grid;
+  justify-items: center;
+  gap: 26px;
+  padding: 0 0 40px;
+}
 
 /* Mobile slightly bigger tap target */
 @media (max-width: 600px) {
@@ -109,5 +169,30 @@ h4 {
   .btn-book {
     padding: 16px 38px;
     font-size: 17px;
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .behandlinger-intro {
+    padding: 22px 0 10px;
+  }
+
+  .behandlinger-title {
+    font-size: 34px;
+  }
+
+  .behandlinger-text {
+    font-size: 14px;
+    max-width: 36ch;
+  }
+
+  .pris-title {
+    font-size: 26px;
+  }
+
+  .pris-subtitle {
+    font-size: 16px;
+    margin-bottom: 14px;
   }
 }

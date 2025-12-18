@@ -1,7 +1,35 @@
 <section class="contact-wrap">
   <div class="contact-grid">
+
+    <!-- INFO -->
+    <div class="info">
+      <h3 class="info-title">BESØG VORES HYGGELIGE SALON</h3>
+
+      <h4 class="info-sub">ADRESSE</h4>
+      <p class="address">
+        Fiolstræde 27<br />
+        1171 København K
+      </p>
+
+      <h4 class="info-sub">ÅBNINGSTIDER</h4>
+      <ul class="opening-hours">
+        <li><span>Mandag</span><span> 9:00 – 17:30</span></li>
+        <li><span>Tirsdag</span><span>9:00 – 17:30</span></li>
+        <li><span>Onsdag</span><span>9:00 – 17:30</span></li>
+        <li><span>Torsdag</span><span>9:00 – 18:30</span></li>
+        <li><span>Fredag</span><span>9:00 – 18:30</span></li>
+        <li><span>Lørdag</span><span>9:00 – 13:30</span></li>
+        <li><span>Søndag</span><span>Lukket</span></li>
+      </ul>
+
+      <div class="contact-lines">
+        <p>Email: <a href="mailto:kaktushairsalon@gmail.com">kaktushairsalon@gmail.com</a></p>
+        <p>Tlf: <a href="tel:+4561221999">61221999</a></p>
+      </div>
+    </div>
+
+    <!-- MAP -->
     <div class="map">
-      <!-- easiest: iframe from Google Maps -->
       <iframe
         title="Kaktus på kort"
         src="https://www.google.com/maps?q=Fiolstr%C3%A6de%2027%2C%201171%20K%C3%B8benhavn%20K&output=embed"
@@ -10,89 +38,109 @@
       ></iframe>
     </div>
 
-    <div class="info">
-      <h3>BESØG VORES HYGGELIGE SALON</h3>
-
-      <h4>ADRESSE</h4>
-      <p>Fiolstræde 27<br />1171 København K</p>
-
-      <h4>ÅBNINGSTIDER</h>
-      <ul>
-        <li><span>Mandag</span><span>9:00 – 17:30</span></li>
-        <li><span>Tirsdag</span><span>9:00 – 17:30</span></li>
-        <li><span>Onsdag</span><span>9:00 – 17:30</span></li>
-        <li><span>Torsdag</span><span>9:00 – 18:30</span></li>
-        <li><span>Fredag</span><span>9:00 – 18:30</span></li>
-        <li><span>Lørdag</span><span>9:00 – 13:30</span></li>
-        <li><span>Søndag</span><span>Lukket</span></li>
-        <p class="contact-lines">
-          Email: kaktushairsalon@gmail.com<br />
-          Tlf: 61221999
-        </p>
-      </ul>
-
-      
-    </div>
   </div>
 </section>
-
 <style>
-  .contact-wrap{
-    background: #FBF4EC;
-    padding: clamp(28px, 5vw, 64px) clamp(18px, 4vw, 64px);
+  .contact-wrap {
+  background: #FBF4EC;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 70px);
+}
+
+/* GRID */
+.contact-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+}
+
+/* MAP */
+.map iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: 14px;
+}
+
+/* HEADLINES */
+.info-title {
+  font-family: "arboria", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.info-sub {
+  font-family: "arboria", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 28px 0 10px;
+}
+
+/* ADDRESS */
+.address {
+  font-family: "montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* OPENING HOURS */
+.opening-hours {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  max-width: 280px;
+}
+
+.opening-hours li {
+  display: grid;
+  grid-template-columns: 110px auto; /* 🔥 closer together */
+  font-family: "montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* CONTACT LINES */
+.contact-lines {
+  margin-top: 30px;
+}
+
+.contact-lines p {
+  font-family: "arboria", sans-serif; /* ✅ Arboria */
+  font-size: 20px;                   /* ✅ same size as headings */
+  margin: 6px 0;
+}
+
+.contact-lines a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 
-  .contact-grid{
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: clamp(20px, 4vw, 60px);
-    align-items: start;
+  .map iframe {
+    height: 260px;
   }
 
-  .map iframe{
-    width: 100%;
-    height: 340px;
-    border: 0;
-    border-radius: 12px;
+  .info-title {
+    font-size: 22px;
   }
 
-  .info h2{
-    margin: 0 0 18px;
-    letter-spacing: .08em;
+  .info-sub {
+    font-size: 18px;
   }
 
-  .info h3{
-    margin: 18px 0 6px;
-    letter-spacing: .06em;
+  .contact-lines p {
+    font-size: 18px;
   }
+}
 
-  ul{
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    display: grid;
-    gap: 6px;
-    max-width: 320px;
-  }
-
-  li{
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-  }
-
-  .contact-lines{
-    margin-top: 18px;
-  }
-
-  @media (max-width: 900px){
-    .contact-grid{
-      grid-template-columns: 1fr;
-    }
-    .map iframe{
-      height: 260px;
-    }
-  }
 </style>
