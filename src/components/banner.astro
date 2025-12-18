@@ -1,42 +1,101 @@
-<div class="banner">
-    <p class="banner-text">
-        HVAD SIGER VORES KUNDER OM KAKTUS
-    </p>
+<section class="reviews-band" aria-label="Kundeudtalelser teaser">
+  <!-- Static headline -->
+  <div class="reviews-headline">
+    <h2>HVAD SIGER VORES KUNDER OM KAKTUS</h2>
   </div>
-  <style>
-    .banner {
-  width: 100%;
-  background-color: #D6C0B3;
-  text-align: center;
-  overflow: hidden;
-  padding: 10px 0;
-}
 
-.banner-text {
-  font-family: fino-sans, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  color: black;
+  <!-- Scrolling banner -->
+  <div class="reviews-ticker">
+    <div class="ticker-track">
+      <p class="ticker-text">
+        ★ “Mega hyggelig stemning” &nbsp; • &nbsp;
+        ★ “Professionelle og effektive” &nbsp; • &nbsp;
+        ★ “Grønne produkter og god service” &nbsp; • &nbsp;
+        ★ “Teamwork og varme vibes” &nbsp; • &nbsp;
+        ★ “Fair priser — høj kvalitet” &nbsp; • &nbsp;
+      </p>
 
-  white-space: nowrap;
-  display: inline-block;
-  animation: scrollText 15s linear infinite;
-}
+      <!-- Duplicate for seamless loop -->
+      <p class="ticker-text" aria-hidden="true">
+        ★ “Mega hyggelig stemning” &nbsp; • &nbsp;
+        ★ “Professionelle og effektive” &nbsp; • &nbsp;
+        ★ “Grønne produkter og god service” &nbsp; • &nbsp;
+        ★ “Teamwork og varme vibes” &nbsp; • &nbsp;
+        ★ “Fair priser — høj kvalitet” &nbsp; • &nbsp;
+      </p>
+    </div>
+  </div>
+</section>
 
-@keyframes scrollText {
-  0% {
-    transform: translateX(100%);
+<style>
+  /* Whole section */
+  .reviews-band {
+    width: 100%;
   }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
-@media (max-width: 768px) {
-  .banner-text {
-    font-size: 14px;
+  /* Static headline block */
+  .reviews-headline {
+    background: #D6C0B3;
+    text-align: center;
+    padding: 18px 16px;
   }
-}
 
-  </style>
-  
+  .reviews-headline h2 {
+    margin: 0;
+    font-family: "arboria", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    color: #111;
+    line-height: 1.15;
+  }
+
+  /* Scrolling ticker block */
+  .reviews-ticker {
+    background: #D6C0B3;
+    overflow: hidden;
+    padding: 10px 0 16px;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: ticker 18s linear infinite;
+    will-change: transform;
+  }
+
+  .ticker-text {
+    margin: 0;
+    white-space: nowrap;
+    font-family: "montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: #111;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .reviews-headline {
+      padding: 14px 12px;
+    }
+
+    .reviews-headline h2 {
+      font-size: 24px;  /* smaller but still strong */
+    }
+
+    .ticker-text {
+      font-size: 16px;
+    }
+
+    .ticker-track {
+      animation-duration: 16s;
+    }
+  }
+</style>
